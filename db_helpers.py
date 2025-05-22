@@ -3,9 +3,9 @@ import bcrypt
 
 DB_PATH = 'database/patient.db'
 
-conn=sqlite3.connect(DB_PATH)
+
 def get_user_by_email(email):
-    conn = sqlite3.connect(DB_PATH)
+    conn=sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     cursor.execute("SELECT id, email, password, username FROM users WHERE email = ?", (email,))
     row = cursor.fetchone()
@@ -20,7 +20,7 @@ def get_user_by_email(email):
     return None
 
 def get_users_by_id(user_id):
-    conn = sqlite3.connect('database/ecofinds.db')
+    conn=sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
 
     cursor.execute("SELECT username, email FROM users WHERE id = ?", (user_id,))
@@ -29,7 +29,7 @@ def get_users_by_id(user_id):
     return row
 
 def get_all_users():
-    conn = sqlite3.connect('database/ecofinds.db')
+    conn=sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
 
     cursor.execute("SELECT * FROM users")
@@ -39,9 +39,8 @@ def get_all_users():
 
 def create_user(email, username, raw_password):
     hashed_password = bcrypt.hashpw(raw_password.encode('utf-8'), bcrypt.gensalt())
-    # hashed_password=raw_password
     try:
-        conn = sqlite3.connect(DB_PATH)
+        conn=sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         cursor.execute("INSERT INTO users (email, password, username) VALUES (?, ?, ?)",
                        (email, hashed_password, username))
@@ -53,7 +52,7 @@ def create_user(email, username, raw_password):
     
 def delete_users(user_id):
     try:
-        conn = sqlite3.connect(DB_PATH)
+        conn=sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         cursor.execute("DELETE FROM users WHERE id =?",
                        (user_id,))
@@ -64,4 +63,7 @@ def delete_users(user_id):
         return False
     
 if __name__=="__main__":
+    # create_user("test@gmail.com", "Test", "Test123")
+    print(get_all_users())
+
     pass

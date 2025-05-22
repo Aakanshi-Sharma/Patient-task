@@ -1,7 +1,7 @@
 import sqlite3
 import os
 
-DB_PATH = 'database/ecofinds.db'
+DB_PATH = 'database/patient.db'
 
 def create_tables():
     os.makedirs("database", exist_ok=True)

@@ -16,7 +16,21 @@ def create_tables():
         username TEXT
     )
     """)
-
+    conn.execute('''
+        CREATE TABLE IF NOT EXISTS patient (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            age INTEGER NOT NULL,
+            address TEXT,
+            phone TEXT,
+            email TEXT,
+            disease TEXT,
+            current_condition TEXT,
+            doctor TEXT,
+            admit_date TEXT,
+            discharge_date TEXT
+        )
+    ''')
 
     conn.commit()
     conn.close()

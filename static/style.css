@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+  font-family: 'Inter', sans-serif;
+    background: linear-gradient(to bottom, #f7f4e9, #c0dfc1, #7dbf7c, #226644);
+    color: white;
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 2em;
+    background-color: #2e7d32;
+    font-size: 1.2em;
+}
+
+.nav a {
+    margin-left: 1em;
+    color: white;
+    text-decoration: none;
+    font-size: 0.85em;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.main {
+    padding: 2em;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 2em;
+}
+#productCount {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+
+.data-section {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1em;
+    border-radius: 8px;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+}
+
+th, td {
+    padding: 0.8em;
+    background: rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-align: left;
+}
+
+th {
+    background-color: #1b5e20;
+}
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.add-btn {
+    background-color: #1b5e20;
+    color: white;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+.form-container {
+    max-width: 600px;
+    margin: 2em auto;
+    padding: 2em;
+    background-color: #1b5e20;
+    border-radius: 8px;
+    color: white;
+}
+
+form label {
+    display: block;
+    margin-top: 1em;
+}
+
+form input {
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    border: none;
+    border-radius: 4px;
+}

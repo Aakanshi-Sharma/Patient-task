@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | LifeSpring</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">LifeSpring</div>
+        <nav class="nav">
+            <a href="{{ url_for('dashboard') }}">Home</a>
+            <a href="{{ url_for('login') }}">Profile</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <h1>Welcome, {{ username }}</h1>
+            <p>Give Your Pre-Loved Items a New Life</p>
+        </section>
+
+        <section class="data-section">
+            <div class="section-header">
+        <h2>Patient Records</h2>
+        <a href="{{ url_for('add_patient') }}" class="add-btn">+ Add Patient</a>
+    </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>SNo.</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Disease</th>
+                            <th>Condition</th>
+                            <th>Doctor</th>
+                            <th>Admit Date</th>
+                            <th>Discharge Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for patient in patient_data %}
+                        <tr>
+                            <td>{{loop.index}}</td>
+                            <td>{{ patient.name }}</td>
+                            <td>{{ patient.age }}</td>
+                            <td>{{ patient.address }}</td>
+                            <td>{{ patient.phone }}</td>
+                            <td>{{ patient.email }}</td>
+                            <td>{{ patient.disease }}</td>
+                            <td>{{ patient.current_condition }}</td>
+                            <td>{{ patient.doctor }}</td>
+                            <td>{{ patient.admit_date }}</td>
+                            <td>{{ patient.discharge_date if patient.discharge_date else '-' }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                 <p id="productCount">{{ patient_data|length }} items found</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

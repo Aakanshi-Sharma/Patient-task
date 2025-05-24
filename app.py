@@ -98,8 +98,6 @@ def edit_patient(patient_id):
     patient = get_patient_by_id(patient_id)
     if not patient:
         return "Patient not found", 404
-    print("patient", patient)
-    print("request.form['age']", request.form['age'])
 
     if request.method == 'POST':
         name = request.form['name']

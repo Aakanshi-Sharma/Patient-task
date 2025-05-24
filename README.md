@@ -1,4 +1,4 @@
-#  Patient Management Dashboard (EcoFinds Health)
+#  Patient Management Dashboard
 
 A simple and intuitive web application built using **Flask** for managing patient data in clinics or hospitals. 
 It provides login/signup functionality, a secure user dashboard, patient CRUD operations, and a responsive UI inspired by the EcoFinds theme.

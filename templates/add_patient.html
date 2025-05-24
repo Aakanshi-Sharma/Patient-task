@@ -1,53 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add Patient</title>
+    <title>{{ 'Edit Patient' if edit_mode else 'Add New Patient' }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-     <header class="header">
+      <header class="header">
         <div class="logo">LifeSpring</div>
         <nav class="nav">
             <a href="{{ url_for('dashboard') }}">Home</a>
-            <a href="{{ url_for('login') }}">Profile</a>
+            <a href="{{ url_for('profile') }}">Profile</a>
             <a href="{{ url_for('logout') }}">Logout</a>
         </nav>
     </header>
     <div class="form-container">
-        <h2>Add New Patient</h2>
+        <h2>{{ 'Edit Patient' if edit_mode else 'Add New Patient' }}</h2>
         <form method="POST">
             <label>Name:</label>
-            <input type="text" name="name" required>
+            <input type="text" name="name" required value="{{ patient.name if patient else '' }}">
 
             <label>Age:</label>
-            <input type="number" name="age" required>
+            <input type="number" name="age" required value="{{ patient.age if patient else '' }}">
 
             <label>Address:</label>
-            <input type="text" name="address">
+            <input type="text" name="address" value="{{ patient.address if patient else '' }}">
 
             <label>Phone:</label>
-            <input type="text" name="phone">
+            <input type="text" name="phone" value="{{ patient.phone if patient else '' }}">
 
             <label>Email:</label>
-            <input type="email" name="email">
+            <input type="email" name="email" value="{{ patient.email if patient else '' }}">
 
             <label>Disease:</label>
-            <input type="text" name="disease">
+            <input type="text" name="disease" value="{{ patient.disease if patient else '' }}">
 
             <label>Current Condition:</label>
-            <input type="text" name="current_condition">
+            <input type="text" name="current_condition" value="{{ patient.current_condition if patient else '' }}">
 
             <label>Doctor:</label>
-            <input type="text" name="doctor">
+            <input type="text" name="doctor" value="{{ patient.doctor if patient else '' }}">
 
             <label>Admit Date:</label>
-            <input type="date" name="admit_date" required>
+            <input type="date" name="admit_date" required value="{{ patient.admit_date if patient else '' }}">
 
             <label>Discharge Date:</label>
-            <input type="date" name="discharge_date">
+            <input type="date" name="discharge_date" value="{{ patient.discharge_date if patient and patient.discharge_date else '' }}">
 
-            <button type="submit" class="add-btn">Save</button>
-            <button class="add-btn" href="{{ url_for('dashboard') }}">Cancel</button>
+            <div class="form-actions">
+                <button type="submit" class="add-btn">{{ 'Update' if edit_mode else 'Save' }}</button>
+                <a href="{{ url_for('dashboard') }}" class="action-btn cancel">Cancel</a>
+            </div>
         </form>
     </div>
 </body>
